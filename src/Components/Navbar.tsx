@@ -25,7 +25,7 @@ const Navbar = () => {
               Home
             </Link>
             <Link
-              to={"/create"}
+              to={"/upload"}
               className="text-gray-300 hover:text-white transition-colors"
             >
               Pyq Upload
@@ -38,7 +38,24 @@ const Navbar = () => {
             </Link>
             {/* Create a search bar*/}
           </div>
-
+          {/* DeskTop Auth */}
+      <div className="hidden md:flex items-center">
+        {user ? (
+          <div className="flex items-center space-x-4">
+            {user?.user_metadata.avatar_url && (
+              <img
+                src={user.user_metadata.avatar_url}
+                alt="User Avatar"
+                className="w-8 h-8 rounded-full object-cover"
+              />
+            )}
+            <span className="text-gray-300">{displayName}</span>
+            <button onClick={signOut} className="bg-red-500 px-3 py-1 rounded">Sign Out</button>
+          </div>
+        ) : (
+          <button onClick={signIn} className="bg-blue-500 px-3 py-1 rounded">Sign In</button>
+        )}
+      </div>
           <div className="md:hidden">
             <button
               className="text-gray-300 focus:outline-none"
@@ -194,24 +211,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      {/* DeskTop Auth */}
-      <div className="hidden md:flex items-center">
-        {user ? (
-          <div className="flex items-center space-x-4">
-            {user?.user_metadata.avatar_url && (
-              <img
-                src={user.user_metadata.avatar_url}
-                alt="User Avatar"
-                className="w-8 h-8 rounded-full object-cover"
-              />
-            )}
-            <span className="text-gray-300">{displayName}</span>
-            <button onClick={signOut} className="bg-red-500 px-3 py-1 rounded">Sign Out</button>
-          </div>
-        ) : (
-          <button onClick={signIn} className="bg-blue-500 px-3 py-1 rounded">Sign In</button>
-        )}
-      </div>
+      
 
       {/* Mobile Links */}
       {menuOpen && (

@@ -2,6 +2,7 @@
 import { Route, Routes } from "react-router"
 import Home from "./pages/Home"
 import Navbar from "./Components/Navbar"
+import UploadPdf from "./pages/UploadPdfPage"
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <div className="container mx-auto px-4 py-6">
           <Routes>
               <Route path="/" element={<Home/>}/>
+              <Route path="/upload" element={<UploadPdf/>}/>
           </Routes>
       </div>
     </div>
