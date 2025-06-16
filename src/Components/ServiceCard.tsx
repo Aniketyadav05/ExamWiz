@@ -7,7 +7,7 @@ type serviceData ={
     description: string,
 } 
 
-const ServiceCard: React.FC<serviceData> = ({title,icon,description}) => {
+const ServiceCard: React.FC<serviceData> = ({title,description}) => {
   return (
     <div className="group cursor-pointer relative bg-[#1e293b]/60 border border-[#334155] rounded-2xl p-6 shadow-xl backdrop-blur-md transition-all duration-300 ease-in-out hover:shadow-[0_0_30px_#7c3aed99] transform hover:-translate-y-2 hover:scale-[1.015] max-w-md w-full">
       

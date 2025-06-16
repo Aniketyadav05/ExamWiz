@@ -1,6 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import Card from "../Card";
 import { fetchAllPapers } from "../../services/conf";
+type Paper = {
+  id: string;
+  subject: string;
+  Year: string;
+  Degree: string;
+  University: string;
+};
 
 const FeatureSection = () => {
     const { data: papers, isLoading, isError } = useQuery({
@@ -32,16 +39,17 @@ const FeatureSection = () => {
 
 
 <div className="grid grid-cols-2 md:grid-cols-4  gap-6 mt-4 w-full max-w-5xl z-10">
-  {papers.slice(0, 4).map((paper: any) => (
-    <Card
-      key={paper.id}
-      id={paper.id}
-      subject={paper.subject}
-      Year={paper.Year}
-      Degree={paper.Degree}
-      University={paper.University}
-    />
-  ))}
+{papers && papers.slice(0, 4).map((paper: Paper) => (
+  <Card
+    key={paper.id}
+    id={paper.id}
+    subject={paper.subject}
+    Year={paper.Year}
+    Degree={paper.Degree}
+    University={paper.University}
+  />
+))}
+
 </div>
 </section>
   )
