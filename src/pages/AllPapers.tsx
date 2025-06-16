@@ -1,7 +1,7 @@
 // src/pages/PapersList.tsx
 import { useQuery } from "@tanstack/react-query";
 import { fetchAllPapers } from "../services/conf";
-import { Link } from "react-router";
+import Card from "../Components/Card";
 type Paper = {
   id: string;
   subject: string;
@@ -23,17 +23,14 @@ const PapersList = () => {
       <h1 className="text-2xl font-bold mb-4">📚 All Generated Papers</h1>
       <ul className="space-y-4">
         {papers && papers.slice(0, 4).map((paper: Paper) => (
-          <li key={paper.id} className="border p-4 rounded shadow">
-            <h2 className="font-semibold text-lg text-white">{paper.subject} ({paper.Year})</h2>
-            <p>{paper.Degree}</p>
-            <p>{paper.University}</p>
-            <Link
-              to={`/papers/${paper.id}`}
-              className="text-blue-600 hover:underline"
-            >
-              View Details →
-            </Link>
-          </li>
+           <Card
+           key={paper.id}
+           id={paper.id}
+           subject={paper.subject}
+           Year={paper.Year}
+           Degree={paper.Degree}
+           University={paper.University}
+         />
         ))}
       </ul>
     </div>
