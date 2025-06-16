@@ -19,10 +19,10 @@ const PapersList = () => {
   if (isError) return <p>Error fetching papers.</p>;
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
+    <div className="max-w-4xl mx-auto p-4 pt-30 pb-10">
       <h1 className="text-2xl font-bold mb-4">📚 All Generated Papers</h1>
-      <ul className="space-y-4">
-        {papers && papers.slice(0, 4).map((paper: Paper) => (
+      <div className="grid grid-cols-2 md:grid-cols-2  gap-6 mt-4 w-full max-w-5xl z-10">
+        {papers && papers.map((paper: Paper) => (
            <Card
            key={paper.id}
            id={paper.id}
@@ -32,7 +32,7 @@ const PapersList = () => {
            University={paper.University}
          />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

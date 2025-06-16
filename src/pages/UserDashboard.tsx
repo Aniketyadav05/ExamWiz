@@ -1,7 +1,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "../config/supabase-client";
-import { Link } from "react-router";
+import Card from "../Components/Card";
 
 const fetchUserPapers = async () => {
     const {
@@ -31,30 +31,25 @@ const UserDashboard = () => {
   });
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
+    <div className="max-w-4xl mx-auto p-6 py-30">
       <h1 className="text-3xl font-bold mb-4">📚 Your Generated Papers</h1>
 
       {isLoading && <p>Loading...</p>}
       {isError && <p className="text-red-500">Failed to load your papers.</p>}
 
       {papers?.length === 0 && <p>No papers generated yet.</p>}
-
+      <div className="grid grid-cols-2 md:grid-cols-2  gap-6 mt-4 w-full max-w-5xl z-10">
       {papers?.map((paper) => (
-        <div
-          key={paper.id}
-          className="border rounded p-4 mb-4 bg-white shadow-sm hover:shadow-md transition"
-        >
-          <h2 className="text-xl font-semibold">{paper.subject} – {paper.year}</h2>
-          <p className="text-sm text-gray-600 mb-2">{paper.university} • {paper.degree}</p>
-          <p className="text-gray-700 line-clamp-3 mb-2">{paper.summary}</p>
-          <Link
-            to={`/papers/${paper.id}`}
-            className="text-blue-600 hover:underline text-sm"
-          >
-            View Full Paper →
-          </Link>
-        </div>
+        <Card
+        key={paper.id}
+        id={paper.id}
+        subject={paper.subject}
+        Year={paper.Year}
+        Degree={paper.Degree}
+        University={paper.University}
+      />
       ))}
+    </div>
     </div>
   );
 };
