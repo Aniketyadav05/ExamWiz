@@ -1,5 +1,4 @@
-// src/pages/UserDashboard.tsx
-import React from "react";
+
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "../config/supabase-client";
 import { Link } from "react-router";
