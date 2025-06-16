@@ -1,5 +1,7 @@
 // src/services/papers.ts
 import { supabase } from "../config/supabase-client";
+
+
 export const generateAndStorePaper = async (formData: {
   subject: string;
   year: string;
@@ -100,11 +102,15 @@ Respond in this **exact structure**:
   return { generated_paper: paper, summary };
 };
 
+
+
 export const fetchAllPapers = async () => {
   const { data, error } = await supabase.from("Papers").select("*").order("created_at", { ascending: false });
   if (error) throw error;
   return data;
 };
+
+
 
 export const fetchPaperById = async (id: number) => {
   const { data, error } = await supabase.from("Papers").select("*").eq("id", id).single();

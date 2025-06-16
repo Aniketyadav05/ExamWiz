@@ -9,60 +9,77 @@ const Navbar = () => {
 
   const displayName = user?.user_metadata.full_name || user?.email;
   return (
-    <nav className="fixed top-0 w-full z-40 bg-[rgba(10,10,10,0.8)] backdrop-blur-lg border-b border-white/10 shadow-lg">
+    <nav className="fixed top-0 left-[10%] mt-8 w-[80%] z-40 bg-[rgba(10,10,10,0.8)] backdrop-blur-lg border-b border-white/10 shadow-lg rounded-4xl">
       <div className="max-w-5xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Change this with the logo */}
-          <Link to="/" className="flex items-center space-x-2">
-  <img src="/logo.png" alt="ExamWiz Logo" className="h-8 w-8 object-contain" />
-  <span className="font-mono text-2xl font-bold text-white tracking-wide">
-    Exam<span className="text-blue-400">Wiz</span>
-  </span>
-</Link>
+          <Link to="/" className="flex items-center space-x-1">
+            <img
+              src="/logo.png"
+              alt="ExamWiz Logo"
+              className="h-8 w-8 object-contain"
+            />
+            <span className="font-mono text-2xl font-bold text-white tracking-wide">
+              Exam<span className="text-blue-400 ml-1">Wiz</span>
+            </span>
+          </Link>
 
-          {/* Desktop Links */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link
-              to={"/"}
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              Home
-            </Link>
-            <Link
-              to={"/upload"}
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              Pyq Upload
-            </Link>
-            <Link
-              to={"/papers"}
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              Generated Papers
-            </Link>
-            {/* Create a search bar*/}
-          </div>
+          
           {/* DeskTop Auth */}
-      <div className="hidden md:flex items-center">
-        {user ? (
+          <div className="hidden md:flex items-center">
+            {user ? (
+            
+          <div className="hidden md:flex items-center space-x-8">
+          <Link
+            to={"/"}
+            className="text-gray-300 hover:text-white transition-colors"
+          >
+            Home
+          </Link>
+          <Link
+            to={"/upload"}
+            className="text-gray-300 hover:text-white transition-colors"
+          >
+            Pyq Upload
+          </Link>
+          <Link
+            to={"/papers"}
+            className="text-gray-300 hover:text-white transition-colors"
+          >
+            Generated Papers
+          </Link>
+          {/* Create a search bar*/}
           <div className="flex items-center space-x-4">
-            {user?.user_metadata.avatar_url && (
-              <Link to={"/userDashboard"}>
-                <img
-                src={user.user_metadata.avatar_url}
-                alt="User Avatar"
-                className="w-8 h-8 rounded-full object-cover"
-              />
-              </Link>
+                {user?.user_metadata.avatar_url && (
+                  <Link to={"/userDashboard"}>
+                    <img
+                      src={user.user_metadata.avatar_url}
+                      alt="User Avatar"
+                      className="w-8 h-8 rounded-full object-cover"
+                    />
+                  </Link>
+                )}
+                <span className="text-gray-300">{displayName}</span>
+                <button
+                  onClick={signOut}
+                  className="bg-red-500 px-3 py-1 rounded"
+                >
+                  Sign Out
+                </button>
+              </div>
+        </div>
+              
+            ) : (
+              <button
+                onClick={signIn}
+                className="bg-blue-500 px-3 py-1 rounded"
+              >
+                Join
+              </button>
             )}
-            <span className="text-gray-300">{displayName}</span>
-            <button onClick={signOut} className="bg-red-500 px-3 py-1 rounded">Sign Out</button>
           </div>
-        ) : (
-          <button onClick={signIn} className="bg-blue-500 px-3 py-1 rounded">Sign In</button>
-        )}
-      </div>
-          <div className="md:hidden">
+          {user?(
+            <div className="md:hidden">
             <button
               className="text-gray-300 focus:outline-none"
               aria-label="Toggle menu"
@@ -215,36 +232,48 @@ const Navbar = () => {
               )}
             </button>
           </div>
+          ):
+          <div className="md:hidden bg-[rgba(10,10,10,0.9)] p-4">
+      <button
+        onClick={signIn}
+        className="bg-blue-500 px-4 py-2 rounded text-white w-full hover:bg-blue-600"
+      >
+        Join
+      </button>
+    </div>}
         </div>
       </div>
-      
 
       {/* Mobile Links */}
       {menuOpen && (
-        <div className="md:hidden bg-[rgba(10,10,10,0.9)]">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            <Link
-              to={"/"}
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
-            >
-              Home
-            </Link>
-            <Link
-              to={"/create"}
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
-            >
-              Pyq Upload
-            </Link>
-            <Link
-              to={"/papers"}
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
-            >
-              Generated Papers
-            </Link>
-            {/* Create a search bar*/}
-          </div>
-        </div>
-      )}
+    <div className="md:hidden bg-[rgba(10,10,10,0.9)]">
+      <div className="px-2 pt-2 pb-3 space-y-1">
+        <Link
+          to="/"
+          className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
+        >
+          Home
+        </Link>
+        <Link
+          to="/create"
+          className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
+        >
+          Pyq Upload
+        </Link>
+        <Link
+          to="/papers"
+          className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
+        >
+          Generated Papers
+        </Link>
+      </div>
+    </div>
+  ) 
+  
+}
+
+        
+      
     </nav>
   );
 };
