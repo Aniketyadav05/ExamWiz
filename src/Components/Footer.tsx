@@ -19,7 +19,6 @@ const Footer = () => {
           <ul className="space-y-2 text-sm">
             <li><a href="/upload" className="hover:text-[#a78bfa] transition">Generate Paper</a></li>
             <li><a href="/papers" className="hover:text-[#a78bfa] transition">Browse Papers</a></li>
-            <li><a href="/about" className="hover:text-[#a78bfa] transition">About</a></li>
           </ul>
         </div>
 
