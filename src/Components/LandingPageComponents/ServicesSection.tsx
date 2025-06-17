@@ -19,12 +19,7 @@ const serviceData = [
       "icon": "📊🔮",
       "description": "Get summarized overviews and topic-wise insights generated with AI. Study with purpose and clarity like never before."
     },
-    {
-        id:4,
-      "title": "Lightning Uploads",
-      "icon": "⚡📤",
-      "description": "Drag, drop, and upload question papers in a flash. Our PDF parser scans it and saves it like magic."
-    }
+    
   ]
   
 
@@ -37,7 +32,7 @@ const ServicesSection = () => {
 
   {/* Section Heading */}
   <div className="max-w-4xl text-center space-y-6 relative">
-  <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#facc15] via-[#a78bfa] to-[#7c3aed] drop-shadow">
+  <h2 className="text-3xl md:text-5xl lg:h-16 h-24 font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#facc15] via-[#a78bfa] to-[#7c3aed] drop-shadow">
   Not Just Papers — It's Alchemy.
 </h2>
 
@@ -49,7 +44,7 @@ const ServicesSection = () => {
   </div>
 </section>
 
-<div className="grid grid-cols-2 md:grid-cols-4  gap-6 mt-4 w-full max-w-5xl z-10">
+<div className="grid grid-cols-2 md:grid-cols-3  gap-6 mt-4 w-full max-w-5xl z-10">
 {serviceData.map((data) => (
   <ServiceCard
     key={data.id}

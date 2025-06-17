@@ -20,14 +20,14 @@ const FeatureSection = () => {
     
   return (
   
-    <section className="bg-[#0b0f1a] flex flex-col items-center py-16 -mt-10 justify-center px-6 relative overflow-hidden">
+    <section className="bg-[#0b0f1a] flex flex-col items-center py-16  justify-center px-6 relative overflow-hidden">
       
-      <section className="relative w-full bg-[#0b0f1a] py-20 px-6 flex flex-col items-center overflow-hidden">
+      <section className="relative w-full py-20 px-6 flex flex-col items-center overflow-hidden">
   
 
   {/* Section Heading */}
-  <div className="max-w-4xl text-center space-y-6 relative">
-    <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#facc15] via-[#a78bfa] to-[#7c3aed] drop-shadow">
+  <div className="max-w-4xl text-center space-y-16 relative">
+    <h2 className="text-3xl md:text-5xl lg:h-16 h-24 font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#facc15] via-[#a78bfa] to-[#7c3aed] drop-shadow">
       A Spark of Code, A Touch of Magic
     </h2>
 

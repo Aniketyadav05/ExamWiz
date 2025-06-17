@@ -19,47 +19,53 @@ export const generateAndStorePaper = async (formData: {
 
   const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 
-  const prompt = `
-You are an expert AI exam paper generator.
+const prompt = `You are an expert AI trained on academic data from top universities and specialized in generating exam papers. Your task is to simulate an in-depth analysis of past university exams to create a realistic and pedagogically sound question paper.
 
-Simulate that you've searched and reviewed the last 5 years of university question papers across top institutions for the following:
-
+Use the following inputs as your search criteria:
 - Subject: ${formData.subject}
 - Degree: ${formData.degree}
-- Year: ${formData.year}
+- Year of Study: ${formData.year}
 - University: ${formData.university}
 
-Your task:
+Step-by-Step Instructions:
 
-1. Analyze Past Papers (simulated):
-   - Imagine you've studied question papers from the last 5 years for this course.
-   - Identify questions that are repeated frequently and topics that appear regularly.
-   - Focus on conceptually important areas and those most often asked by examiners.
+1. Simulate Retrieval of Past Papers (Last 5 Years):  
+Pretend you've accessed and reviewed the official university archives and exam repositories. Identify trends in the last five years of question papers for this course:
+- Detect frequently repeated questions or themes.
+- Identify high-weightage units and core conceptual areas.
+- Consider the academic focus and syllabus design typical for this university and degree program.
 
-2. Now Generate a Fresh Exam Paper:
-   - Use your analysis to draft a new paper that feels authentic and balanced.
-   - Structure it with the following sections:
+2. Analyze Patterns and Examiner Preferences:  
+- Extract key focus areas that appear consistently (e.g., derivations, case studies, applied problems, theoretical principles).
+- Note the balance between memory-based, application-based, and analytical questions.
 
-     Section A – Short Answer Questions (6 to 10 questions)  
-     Section B – Long Answer Questions (4 to 6 questions)  
-     Section C – Frequently Asked Conceptual Questions (3 to 5 questions)  
+3. Generate a New, Realistic Exam Paper:  
+Using your insights, draft a fresh and balanced question paper. Structure it into the following sections:
+- Section A – Short Answer Questions (6 to 10 questions)
+- Section B – Long Answer Questions (4 to 6 questions)
+- Section C – Frequently Asked Conceptual Questions (3 to 5 questions)
 
-   - Number each question plainly (e.g., 1, 2, 3...). Do not use any special formatting or markdown. Avoid asterisks, bold, or symbols.
+Formatting Guidelines:
+- Number each question simply (e.g., 1, 2, 3...)
+- Use plain text only.
+- Do not include any special characters, markdown, bullet points, asterisks, or formatting.
+- The content should feel authentic and match the tone, phrasing, and depth used in real university exams.
 
-3. After the paper, give a short summary:
-   - Summarize the most commonly tested concepts and themes.
-   - Write in clear, academic English as if advising a student what to focus on.
+4. Provide an Academic Summary for Students:
+After the paper, write a brief academic advisory summary:
+- Outline the 3–4 most important and frequently examined concepts.
+- Provide study focus tips in clear, academic English.
+- Make it sound like a concise preparation guide from a professor.
 
-Important: Follow this strict output format:
+OUTPUT FORMAT (STRICTLY FOLLOW):
 
-[START_PAPER]  
-<Insert the generated paper here in plain text>  
-[END_PAPER]  
+[START_PAPER]
+<Insert the generated paper here in plain text>
+[END_PAPER]
 
-[START_SUMMARY]  
-<Insert a 3 to 4 line academic summary of the most frequent and important topics, written like an exam tips guide>  
-[END_SUMMARY]
-`
+[START_SUMMARY]
+<Insert a 3–4 line academic summary of the most frequently tested topics and how a student should prepare>
+[END_SUMMARY]`
 
   const res = await fetch(
     `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${API_KEY}`,
