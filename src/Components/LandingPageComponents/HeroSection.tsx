@@ -1,6 +1,20 @@
-import { Link } from "react-router";
+import { useState } from "react";
+import {  useNavigate } from "react-router";
+import { useAuth } from "../../contexts/AuthContext";
+import SignInModal from "../signInModal";
 
 const HeroSection = () => {
+  const { user} = useAuth();
+  const [modalOpen, setModalOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleProtectedNavigation = (path: string) => {
+    if (!user) {
+      setModalOpen(true);
+    } else {
+      navigate(path);
+    }
+  };
   return (
     <section className="bg-[#0b0f1a] min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -29,15 +43,24 @@ const HeroSection = () => {
 </p>
 
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to={"/upload"} className="relative cursor-pointer bg-[#7c3aed] hover:bg-[#6d28d9] text-[#f8fafc] px-6 py-3 rounded-full text-lg font-semibold shadow-lg transition-all duration-300 animate-glow">
-            ✨ Generate Paper
-          </Link>
-          <Link to={"/papers"} className="border cursor-pointer border-[#435164] hover:bg-[#6d28d9] text-[#f8fafc] px-6 py-3 rounded-full text-lg  transition duration-300 ">
-            🧾 Browse Papers
-          </Link>
-        </div>
+<div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <button
+          onClick={() => handleProtectedNavigation("/upload")}
+          className="relative cursor-pointer bg-[#7c3aed] hover:bg-[#6d28d9] text-[#f8fafc] px-6 py-3 rounded-full text-lg font-semibold shadow-lg transition-all duration-300 animate-glow"
+        >
+          ✨ Generate Paper
+        </button>
+
+        <button
+          onClick={() => handleProtectedNavigation("/papers")}
+          className="border cursor-pointer border-[#435164] hover:bg-[#6d28d9] text-[#f8fafc] px-6 py-3 rounded-full text-lg transition duration-300"
+        >
+          🧾 Browse Papers
+        </button>
       </div>
+      </div>
+
+      <SignInModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   );
 };

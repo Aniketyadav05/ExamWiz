@@ -49,7 +49,10 @@ const Navbar = () => {
                 )}
                 <span className="text-white">{displayName}</span>
                 <button
-                  onClick={signOut}
+                  onClick={() => {
+                    signOut();
+                    window.location.reload();
+                  }}
                   className="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded-xl shadow-sm cursor-pointer"
                 >
                   Sign Out
@@ -224,19 +227,19 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-white/10 backdrop-blur-md rounded-b-3xl px-4 pb-4 pt-2">
-         {user && (
-          <>
-           <Link to="/" className="mobile-link">
-            Home
-          </Link>
-          <Link to="/upload" className="mobile-link">
-            PYQ Upload
-          </Link>
-          <Link to="/papers" className="mobile-link">
-            Generated Papers
-          </Link>
-          </>
-         )}
+          {user && (
+            <>
+              <Link to="/" className="mobile-link">
+                Home
+              </Link>
+              <Link to="/upload" className="mobile-link">
+                PYQ Upload
+              </Link>
+              <Link to="/papers" className="mobile-link">
+                Generated Papers
+              </Link>
+            </>
+          )}
 
           {user ? (
             <div className="mt-4 space-y-2">

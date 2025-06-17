@@ -20,7 +20,7 @@ const FeatureSection = () => {
     
   return (
   
-    <section className="bg-[#0b0f1a] flex flex-col items-center py-16 -mt-20 justify-center px-6 relative overflow-hidden">
+    <section className="bg-[#0b0f1a] flex flex-col items-center py-16 -mt-10 justify-center px-6 relative overflow-hidden">
       
       <section className="relative w-full bg-[#0b0f1a] py-20 px-6 flex flex-col items-center overflow-hidden">
   
