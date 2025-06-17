@@ -1,4 +1,5 @@
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
@@ -27,7 +28,7 @@ const Footer = () => {
           <h3 className="text-lg font-semibold mb-3 text-[#f8fafc]">Resources</h3>
           <ul className="space-y-2 text-sm">
             <li><a href="/" className="hover:text-[#a78bfa] transition">FAQ</a></li>
-            <li><a href="/policy" className="hover:text-[#a78bfa] transition">Privacy Policy</a></li>
+            <li><Link to="/policy" className="hover:text-[#a78bfa] transition">Privacy Policy</Link></li>
             <li><a href="/" className="hover:text-[#a78bfa] transition">Terms of Use</a></li>
           </ul>
         </div>
