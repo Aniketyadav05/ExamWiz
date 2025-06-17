@@ -11,7 +11,6 @@ const Navbar = () => {
     <nav className="fixed top-8 left-1/2 transform -translate-x-1/2 md:w-[70%] w-[90%] z-50 backdrop-blur-md bg-white/10 border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] rounded-3xl">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-1">
             <img src="/logo.png" alt="ExamWiz Logo" className="h-10 w-9" />
@@ -21,10 +20,21 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Menu */}
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="nav-link">Home</Link>
-            <Link to="/upload" className="nav-link">Generate Paper</Link>
-            <Link to="/papers" className="nav-link">All Papers</Link>
+            {user && (
+              <>
+                <Link to="/" className="nav-link">
+                  Home
+                </Link>
+                <Link to="/upload" className="nav-link">
+                  Generate Paper
+                </Link>
+                <Link to="/papers" className="nav-link">
+                  All Papers
+                </Link>
+              </>
+            )}
 
             {user ? (
               <div className="flex items-center space-x-4">
@@ -48,61 +58,63 @@ const Navbar = () => {
             ) : (
               <button
                 onClick={signIn}
-                className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-1 rounded-xl shadow-sm"
+                className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-1 rounded-xl shadow-sm cursor-pointer"
               >
-                Join
+                Join now
               </button>
             )}
           </div>
 
           {/* Mobile Menu Toggle */}
           <div className="md:hidden">
-            <button onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
-            
-                {menuOpen ? (
-                   <svg
-                   xmlns="http://www.w3.org/2000/svg"
-                   width="32"
-                   height="32"
-                   viewBox="0 0 24 24"
-                 >
-                   <g
-                     fill="none"
-                     stroke="currentColor"
-                     strokeLinecap="round"
-                     strokeLinejoin="round"
-                     strokeWidth="2"
-                   >
-                     <path
-                       strokeDasharray="20"
-                       strokeDashoffset="20"
-                       d="M5 5L19 19"
-                     >
-                       <animate
-                         fill="freeze"
-                         attributeName="stroke-dashoffset"
-                         dur="0.3s"
-                         values="20;0"
-                       />
-                     </path>
- 
-                     <path
-                       strokeDasharray="20"
-                       strokeDashoffset="20"
-                       d="M19 5L5 19"
-                     >
-                       <animate
-                         fill="freeze"
-                         attributeName="stroke-dashoffset"
-                         begin="0.3s"
-                         dur="0.3s"
-                         values="20;0"
-                       />
-                     </path>
-                   </g>
-                 </svg>
-                ) : (
-                  <svg
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
+            >
+              {menuOpen ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <g
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                  >
+                    <path
+                      strokeDasharray="20"
+                      strokeDashoffset="20"
+                      d="M5 5L19 19"
+                    >
+                      <animate
+                        fill="freeze"
+                        attributeName="stroke-dashoffset"
+                        dur="0.3s"
+                        values="20;0"
+                      />
+                    </path>
+
+                    <path
+                      strokeDasharray="20"
+                      strokeDashoffset="20"
+                      d="M19 5L5 19"
+                    >
+                      <animate
+                        fill="freeze"
+                        attributeName="stroke-dashoffset"
+                        begin="0.3s"
+                        dur="0.3s"
+                        values="20;0"
+                      />
+                    </path>
+                  </g>
+                </svg>
+              ) : (
+                <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="40"
                   height="40"
@@ -203,8 +215,7 @@ const Navbar = () => {
                     </circle>
                   </g>
                 </svg>
-                )}
-              
+              )}
             </button>
           </div>
         </div>
@@ -213,13 +224,26 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-white/10 backdrop-blur-md rounded-b-3xl px-4 pb-4 pt-2">
-          <Link to="/" className="mobile-link">Home</Link>
-          <Link to="/upload" className="mobile-link">PYQ Upload</Link>
-          <Link to="/papers" className="mobile-link">Generated Papers</Link>
+         {user && (
+          <>
+           <Link to="/" className="mobile-link">
+            Home
+          </Link>
+          <Link to="/upload" className="mobile-link">
+            PYQ Upload
+          </Link>
+          <Link to="/papers" className="mobile-link">
+            Generated Papers
+          </Link>
+          </>
+         )}
 
           {user ? (
             <div className="mt-4 space-y-2">
-              <Link to="/userDashboard" className="flex items-center gap-2 text-white">
+              <Link
+                to="/userDashboard"
+                className="flex items-center gap-2 text-white"
+              >
                 <img
                   src={user.user_metadata.avatar_url}
                   alt="Avatar"
