@@ -27,3 +27,11 @@
 .animate-glow {
   animation: glowPulse 2.5s ease-in-out infinite;
 }
+
+.nav-link {
+  @apply text-gray-300 hover:text-white transition-colors duration-200;
+}
+
+.mobile-link {
+  @apply block px-4 py-2 text-base text-gray-300 hover:text-white hover:bg-gray-700 rounded;
+}

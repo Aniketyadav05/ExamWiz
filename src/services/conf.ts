@@ -22,7 +22,7 @@ export const generateAndStorePaper = async (formData: {
   const prompt = `
 You are an expert AI exam paper generator.
 
-Simulate that you've searched and reviewed the last **5 years of university question papers** across major institutions in the subject:
+Simulate that you've searched and reviewed the last 5 years of university question papers across top institutions for the following:
 
 - Subject: ${formData.subject}
 - Degree: ${formData.degree}
@@ -31,40 +31,35 @@ Simulate that you've searched and reviewed the last **5 years of university ques
 
 Your task:
 
-### 🔍 Analyze Past Papers (simulated behavior):
-- Imagine you accessed the last 5 years of question papers.
-- Identify **frequently repeated questions** and **important topics**.
-- Prioritize **questions that are most commonly asked** or **conceptually important**.
+1. Analyze Past Papers (simulated):
+   - Imagine you've studied question papers from the last 5 years for this course.
+   - Identify questions that are repeated frequently and topics that appear regularly.
+   - Focus on conceptually important areas and those most often asked by examiners.
 
----
+2. Now Generate a Fresh Exam Paper:
+   - Use your analysis to draft a new paper that feels authentic and balanced.
+   - Structure it with the following sections:
 
-### 📝 Now Generate a New Paper:
-- Use insights from the past 5 years.
-- Structure it like a real university exam paper.
-- Include:
-  - Section A – Short Answer Questions (6–10)
-  - Section B – Long Answer Questions (4–6)
-  - Section C – Frequently Asked Conceptual Questions (3–5)
-- Use plain formatting (e.g., 1, 2, 3...) and no markdown.
+     Section A – Short Answer Questions (6 to 10 questions)  
+     Section B – Long Answer Questions (4 to 6 questions)  
+     Section C – Frequently Asked Conceptual Questions (3 to 5 questions)  
 
----
+   - Number each question plainly (e.g., 1, 2, 3...). Do not use any special formatting or markdown. Avoid asterisks, bold, or symbols.
 
-### 📌 Summary (3–4 lines only):
-At the end, summarize the most important frequently asked concepts in simple English.
+3. After the paper, give a short summary:
+   - Summarize the most commonly tested concepts and themes.
+   - Write in clear, academic English as if advising a student what to focus on.
 
----
+Important: Follow this strict output format:
 
-### 🎯 Output Format (strict):
-Respond in this **exact structure**:
+[START_PAPER]  
+<Insert the generated paper here in plain text>  
+[END_PAPER]  
 
-[START_PAPER]
-<Put the generated paper here>
-[END_PAPER]
-
-[START_SUMMARY]
-<Insert a brief FAQ-style summary of important concepts here>
+[START_SUMMARY]  
+<Insert a 3 to 4 line academic summary of the most frequent and important topics, written like an exam tips guide>  
 [END_SUMMARY]
-`;
+`
 
   const res = await fetch(
     `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${API_KEY}`,
@@ -113,6 +108,7 @@ export const fetchAllPapers = async () => {
 
 
 export const fetchPaperById = async (id: number) => {
+  
   const { data, error } = await supabase.from("Papers").select("*").eq("id", id).single();
   if (error) throw error;
   return data;

@@ -15,18 +15,23 @@ const PaperDetails = () => {
   if (isError || !paper) return <p>Error loading paper.</p>;
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-2">
-        📄 {paper.subject} ({paper.Year})
+    <div className="max-w-4xl mx-auto p-4 pt-30">
+      <h1 className="text-2xl mb-2 text-[#a78bfa] font-extrabold">
+        📄 {paper.subject} (Year: {paper.Year})
       </h1>
-      <p className="mb-1 text-gray-700">University: {paper.University}</p>
-      <p className="mb-4 text-gray-700">Degree: {paper.Degree}</p>
+      <p className="mb-1 text-[#a78bfa] font-bold">University: {paper.University}</p>
+      <p className="mb-4 text-[#a78bfa] font-bold">Degree: {paper.Degree}</p>
 
-      <h2 className="font-semibold mt-6 mb-2">📝 Question Paper</h2>
-      <pre className="bg-gray-100 p-4 rounded whitespace-pre-wrap text-black">{paper.generated_paper}</pre>
+      <h2 className="font-semibold mt-6 text-2xl text-[#a78bfa] mb-4">📝 Question Paper</h2>
+      <div className="bg-[#1e293b]/60 border border-[#334155] rounded-2xl">
+      <p className="p-4 py-8 rounded whitespace-pre-wrap text-white font-bold">{paper.generated_paper}</p>
+      </div>
+     
 
-      <h2 className="font-semibold mt-6 mb-2">📌 Summary</h2>
-      <p className="bg-gray-100 p-3 rounded text-black">{paper.summary}</p>
+      <h2 className="font-semibold mt-6 text-2xl text-[#a78bfa] mb-4">📌 Summary</h2>
+      <div className="bg-[#1e293b]/60 border border-[#334155] rounded-2xl">
+      <p className=" p-3 py-8 rounded text-white font-bold">{paper.summary}</p></div>
+      
     </div>
   );
 };
