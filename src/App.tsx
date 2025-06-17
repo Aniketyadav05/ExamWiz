@@ -7,6 +7,7 @@ import PapersList from "./pages/AllPapers"
 import PaperDetails from "./pages/PaperDetails"
 import UserDashboard from "./pages/UserDashboard"
 import Footer from "./Components/Footer"
+import Policy from "./pages/Policy"
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
               <Route path="/papers" element={<PapersList/>}/>
               <Route path="/userDashboard" element={<UserDashboard/>}/>
               <Route path="/papers/:id" element={<PaperDetails />} />
+              <Route path="/policy" element={<Policy />} />
           </Routes>
       </div>
       <Footer></Footer>

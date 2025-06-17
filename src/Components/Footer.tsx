@@ -28,7 +28,7 @@ const Footer = () => {
           <h3 className="text-lg font-semibold mb-3 text-[#f8fafc]">Resources</h3>
           <ul className="space-y-2 text-sm">
             <li><a href="/faq" className="hover:text-[#a78bfa] transition">FAQ</a></li>
-            <li><a href="/privacy" className="hover:text-[#a78bfa] transition">Privacy Policy</a></li>
+            <li><a href="/policy" className="hover:text-[#a78bfa] transition">Privacy Policy</a></li>
             <li><a href="/terms" className="hover:text-[#a78bfa] transition">Terms of Use</a></li>
           </ul>
         </div>
@@ -39,13 +39,13 @@ const Footer = () => {
           <p className="text-sm text-[#94a3b8] mb-4">Have a feature idea or a bug to report?</p>
           
           <div className="flex gap-4 text-xl text-[#94a3b8]">
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
+            <a href="https://github.com/aniketyadav05" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
               <FaGithub />
             </a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
+            <a href="https://linkedin.com/in/aniketyadav05" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
               <FaLinkedin />
             </a>
-            <a href="https://x.com/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
+            <a href="https://x.com/AniketYadav05_" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
               <FaXTwitter />
             </a>
           </div>

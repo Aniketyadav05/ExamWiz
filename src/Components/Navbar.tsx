@@ -21,7 +21,7 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 font-bold">
             {user && (
               <>
                 <Link to="/" className="nav-link">
@@ -38,16 +38,22 @@ const Navbar = () => {
 
             {user ? (
               <div className="flex items-center space-x-4">
-                {user?.user_metadata.avatar_url && (
+                {user && (
+                  
                   <Link to="/userDashboard">
+                    <div className="flex flex-row items-center space-x-2">
                     <img
-                      src={user.user_metadata.avatar_url}
-                      alt="User Avatar"
-                      className="w-8 h-8 rounded-full object-cover ring-2 ring-white"
+                      src={user.user_metadata.avatar_url }
+                      alt="user avatar"
+                      className="w-8 h-8 rounded-2xl object-cover ring-1 ring-white"
                     />
+                    <span className=" text-[#a78bfa] font-bold">{displayName}</span>
+                    </div>
+                    
+                    
                   </Link>
                 )}
-                <span className="text-white">{displayName}</span>
+                
                 <button
                   onClick={ () => {
                     signOut(); 
@@ -55,7 +61,7 @@ const Navbar = () => {
                       navigate("/"); 
                    
                   }}
-                  className="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded-xl shadow-sm cursor-pointer"
+                  className="bg-amber-500 hover:bg-amber-600 text-white px-4 py-1 rounded-xl shadow-sm cursor-pointer"
                 >
                   Sign Out
                 </button>
@@ -63,7 +69,7 @@ const Navbar = () => {
             ) : (
               <button
                 onClick={signIn}
-                className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-1 rounded-xl shadow-sm cursor-pointer"
+                className="bg-[#7c3aed] hover:bg-[#6d28d9] font-bold text-white px-4 py-1 rounded-xl shadow-sm cursor-pointer"
               >
                 Join now
               </button>

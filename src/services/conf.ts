@@ -113,3 +113,10 @@ export const fetchPaperById = async (id: number) => {
   if (error) throw error;
   return data;
 };
+
+export const fetchPaperBySubject = async (subject: string) => {
+  
+  const { data, error } = await supabase.from("Papers").select("*").ilike("subject", `%${subject}%`)
+  if (error) throw error;
+  return data;
+};

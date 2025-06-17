@@ -43,14 +43,14 @@ const ExamForm = () => {
             placeholder={field[0].toUpperCase() + field.slice(1)}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 bg-[#0f172a] text-[#f8fafc] border border-[#334155] rounded-md focus:outline-none focus:ring-2 focus:ring-[#3b82f6]"
+            className="w-full px-4 py-2 bg-[#0f172a] text-[#f8fafc] border border-[#334155] rounded-md focus:outline-none focus:ring-2 focus:ring-[#6d28d9]"
           />
         ))}
 
         <button
           type="submit"
           disabled={isPending}
-          className="w-full bg-[#3b82f6] hover:bg-[#2563eb] text-white font-semibold py-2 px-4 rounded-md transition"
+          className="w-full cursor-pointer bg-[#7c3aed] hover:bg-[#6d28d9] text-white font-semibold py-2 px-4 rounded-md transition"
         >
           {isPending ? "Generating..." : "✨ Generate & Submit"}
         </button>
