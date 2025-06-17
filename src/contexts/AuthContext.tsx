@@ -35,7 +35,8 @@ export const AuthProvider = ({children}: {children: React.ReactNode}) => {
     }
 
     const signOut =()=> {
-        supabase.auth.signOut();
+       supabase.auth.signOut();
+        
     }
     return <AuthContext.Provider value={{user, signIn,signOut}}> {children}</AuthContext.Provider>
 }

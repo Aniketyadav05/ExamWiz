@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useAuth } from "../contexts/AuthContext";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { signIn, signOut, user } = useAuth();
   const displayName = user?.user_metadata.full_name || user?.email;
-
+  const navigate = useNavigate();
   return (
     <nav className="fixed top-8 left-1/2 transform -translate-x-1/2 md:w-[70%] w-[90%] z-50 backdrop-blur-md bg-white/10 border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] rounded-3xl">
       <div className="max-w-6xl mx-auto px-4">
@@ -49,9 +49,11 @@ const Navbar = () => {
                 )}
                 <span className="text-white">{displayName}</span>
                 <button
-                  onClick={() => {
-                    signOut();
-                    window.location.reload();
+                  onClick={ () => {
+                    signOut(); 
+                    
+                      navigate("/"); 
+                   
                   }}
                   className="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded-xl shadow-sm cursor-pointer"
                 >
