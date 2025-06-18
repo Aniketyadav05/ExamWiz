@@ -8,6 +8,7 @@ import PaperDetails from "./pages/PaperDetails"
 import UserDashboard from "./pages/UserDashboard"
 import Footer from "./Components/Footer"
 import Policy from "./pages/Policy"
+import ErrorPage from "./pages/ErrorPage"
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
               <Route path="/userDashboard" element={<UserDashboard/>}/>
               <Route path="/papers/:id" element={<PaperDetails />} />
               <Route path="/policy" element={<Policy />} />
+              <Route path="*" element={<ErrorPage />} />
           </Routes>
       </div>
       <Footer></Footer>
