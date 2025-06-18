@@ -34,7 +34,11 @@
 
 ## 📸 Preview
 
-![ExamWiz Preview](https://github.com/Aniketyadav05/ExamWiz/assets/your-preview-image.png)  
+![ExamWiz Preview](https://github.com/user-attachments/assets/f493bac1-2a84-4094-9139-cdcb61d5cf7c)
+## 📸 After Login
+![After LogIn](https://github.com/user-attachments/assets/896a51f2-ded1-4daf-9e3b-e1769b38ddc7)
+
+
 <!-- Replace with actual screenshot if available -->
 
 ---
