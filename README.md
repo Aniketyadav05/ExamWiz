@@ -98,6 +98,6 @@ Made with ❤️ by [**Aniket Yadav**](https://github.com/Aniketyadav05)
 If you found this helpful, don't forget to ⭐ star the repo!
 
 <p align="center">
-  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmM4c2RuZTBqdmZ3Mmx1NzFtZzZ5Y2dycmJ1azB4OTB4YzMzazJ4cSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/26gJAa7QvLxuQZhtO/giphy.gif" width="300"/>
+  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2IxdDB6NDBxOHVkaTU0bnp0Yzg0ZGV6ZzNkbDlqcnc0ZGtnc2VtaCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/zINs6k7lwfawSbLOIc/giphy.gif" width="300"/>
 </p>
 
