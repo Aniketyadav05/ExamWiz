@@ -63,6 +63,7 @@ const PapersList = () => {
           type="text"
           className="w-full px-4 py-2 bg-[#0f172a] text-[#f8fafc] border border-[#334155] rounded-md focus:outline-none focus:ring-2 focus:ring-[#6d28d9]"
         />
+
       </div>
 
       {/* Loading */}
